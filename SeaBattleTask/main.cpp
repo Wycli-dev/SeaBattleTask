@@ -13,7 +13,9 @@ int main(int argc, const char * argv[]) {
     SeaBattleGameField* game_field = new SeaBattleGameField();
     game_field->draw();
 
-    game_field->add_ship(Ship(0, 0, 3, Orientation::VERTICAL));
+    std::cout << game_field->add_ship(Ship(5, 5, 3, Orientation::HORIZONTAL)) << std::endl;
+    std::cout << game_field->add_ship(Ship(7, 2, 2, Orientation::VERTICAL)) << std::endl;
+//    game_field->add_ship(Ship(0, 0, 3, Orientation::VERTICAL));
 
     game_field->draw();
     

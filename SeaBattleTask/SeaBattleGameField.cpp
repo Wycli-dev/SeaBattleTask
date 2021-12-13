@@ -64,12 +64,12 @@ bool SeaBattleGameField::add_ship(Ship new_ship) {
     int x = new_ship.x;
     int y = new_ship.y;
     
-    if(x < 0 || y < 0 || x + x_length >= 10 || y + y_length >= 10) {
+    if(x < 0 || y < 0 || x + x_length > 10 || y + y_length > 10) {
         return false;
     }
     
-    for(int i = std::max(0, y - 1); i < std::max(9, y + y_length); i++) {
-        for(int j = std::max(0, x - 1); j < std::max(9, x + x_length); j++){
+    for(int i = std::max(0, y - 1); i < std::min(10, y + y_length + 1); i++) {
+        for(int j = std::max(0, x - 1); j < std::min(10, x + x_length + 1); j++){
             if(ship_exists(j, i)) {
                 return false;
             }
