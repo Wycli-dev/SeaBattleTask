@@ -7,6 +7,7 @@
 
 #include "SeaBattleGameField.hpp"
 
+
 namespace {
     std::string with_leading_spaces(std::string source_string, int max_length) {
         std::string result = source_string;
@@ -17,6 +18,7 @@ namespace {
 
 SeaBattleGameField::SeaBattleGameField() {
     ships = {};
+    ships_avaliability = {4, 3, 2, 1};
 }
 
 bool SeaBattleGameField::ship_exists(int x, int y) {
@@ -31,9 +33,9 @@ void SeaBattleGameField::draw() {
     int max_length = 2;
     char start_letter = 'A';
     
-    for(int i = 0; i < 10; i++) {
+    for(int i = 0; i < 11; i++) {
         
-        for(int j = 0; j < 10; j++) {
+        for(int j = 0; j < 11; j++) {
             if(i == 0) {
                 if(j == 0) {
                     std::cout << with_leading_spaces(" ", max_length);
@@ -57,23 +59,28 @@ void SeaBattleGameField::draw() {
 }
 
 bool SeaBattleGameField::add_ship(Ship new_ship) {
-    bool exists = false;
+    int x_length = new_ship.orientation == Orientation::HORIZONTAL ? new_ship.length : 1;
+    int y_length = new_ship.orientation == Orientation::VERTICAL ? new_ship.length : 1;
+    int x = new_ship.x;
+    int y = new_ship.y;
     
-    for(int i = 0; i < new_ship.length; i++) {
-        if(new_ship.orientation == Orientation::HORIZONTAL) {
-            exists = exists || ship_exists(new_ship.x + i, new_ship.y);
-        } else {
-            exists = exists || ship_exists(new_ship.x, new_ship.y + i);
+    if(x < 0 || y < 0 || x + x_length >= 10 || y + y_length >= 10) {
+        return false;
+    }
+    
+    for(int i = std::max(0, y - 1); i < std::max(9, y + y_length); i++) {
+        for(int j = std::max(0, x - 1); j < std::max(9, x + x_length); j++){
+            if(ship_exists(j, i)) {
+                return false;
+            }
         }
     }
     
-    int used_ship_count = 0;
-    for(Ship ship : ships) {
-        if(ship.length == new_ship.length) used_ship_count++;
+    if(ships_avaliability[new_ship.length - 1] == 0) {
+        return false;
     }
-    
-    if(exists || used_ship_count >= 5 - new_ship.length) return false;
 
     ships.push_back(new_ship);
+    ships_avaliability[new_ship.length - 1]--;
     return true;
 }

@@ -14,7 +14,6 @@ int main(int argc, const char * argv[]) {
     game_field->draw();
 
     game_field->add_ship(Ship(0, 0, 3, Orientation::VERTICAL));
-    game_field->add_ship(Ship(0, 1, 3, Orientation::VERTICAL));
 
     game_field->draw();
     
