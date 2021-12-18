@@ -91,6 +91,12 @@ bool SeaBattleGameField::add_ship(Ship new_ship) {
     
     if(x < 0 || x + x_len - 1 > 9 || y < 0 || y + y_len - 1 > 9) return false;
     
+    for(int i = std::max(0, y - 1); i < std::min(9, y + y_len + 1); i++) {
+        for(int j = std::max(0, x - 1); j < std::min(9, x + x_len + 1); j++) {
+            if(ship_exists(j, i)) return false;
+        }
+    }
+    
     if(!ship_available(new_ship.length)) return false;
     
     ships.push_back(new_ship);

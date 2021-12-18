@@ -13,7 +13,9 @@
 int main(int argc, const char * argv[]) {
     
     SeaBattleGameField gameField(false);
-    gameField.add_ship(Ship(0,0,3, Orientation::HORIZONTAL));
+    gameField.add_ship(Ship(3,3,3, Orientation::HORIZONTAL));
+    gameField.add_ship(Ship(2,2,3, Orientation::HORIZONTAL));
+    
     gameField.shoot(0,0);
     gameField.shoot(0, 1);
     gameField.draw();
