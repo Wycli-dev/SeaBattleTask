@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		734ACF5D276DF23B003A85C7 /* SeaBattleGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 734ACF5B276DF23B003A85C7 /* SeaBattleGame.cpp */; };
 		73A9FFB32766037D002007C1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73A9FFB22766037D002007C1 /* main.cpp */; };
 		73A9FFBB276603CA002007C1 /* Ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73A9FFB9276603CA002007C1 /* Ship.cpp */; };
 		73A9FFBE27660512002007C1 /* SeaBattleGameField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73A9FFBC27660512002007C1 /* SeaBattleGameField.cpp */; };
@@ -25,6 +26,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		734ACF59276DF1DB003A85C7 /* GameState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameState.hpp; sourceTree = "<group>"; };
+		734ACF5B276DF23B003A85C7 /* SeaBattleGame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SeaBattleGame.cpp; sourceTree = "<group>"; };
+		734ACF5C276DF23B003A85C7 /* SeaBattleGame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SeaBattleGame.hpp; sourceTree = "<group>"; };
+		734ACF5F276DF8B0003A85C7 /* PointState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PointState.hpp; sourceTree = "<group>"; };
 		73A9FFAF2766037D002007C1 /* SeaBattleTask */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SeaBattleTask; sourceTree = BUILT_PRODUCTS_DIR; };
 		73A9FFB22766037D002007C1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		73A9FFB9276603CA002007C1 /* Ship.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Ship.cpp; sourceTree = "<group>"; };
@@ -63,10 +68,14 @@
 		73A9FFB12766037D002007C1 /* SeaBattleTask */ = {
 			isa = PBXGroup;
 			children = (
+				734ACF59276DF1DB003A85C7 /* GameState.hpp */,
+				734ACF5F276DF8B0003A85C7 /* PointState.hpp */,
 				73A9FFBA276603CA002007C1 /* Ship.hpp */,
 				73A9FFB9276603CA002007C1 /* Ship.cpp */,
-				73A9FFBC27660512002007C1 /* SeaBattleGameField.cpp */,
 				73A9FFBD27660512002007C1 /* SeaBattleGameField.hpp */,
+				73A9FFBC27660512002007C1 /* SeaBattleGameField.cpp */,
+				734ACF5C276DF23B003A85C7 /* SeaBattleGame.hpp */,
+				734ACF5B276DF23B003A85C7 /* SeaBattleGame.cpp */,
 				73A9FFB22766037D002007C1 /* main.cpp */,
 			);
 			path = SeaBattleTask;
@@ -130,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73A9FFB32766037D002007C1 /* main.cpp in Sources */,
+				734ACF5D276DF23B003A85C7 /* SeaBattleGame.cpp in Sources */,
 				73A9FFBB276603CA002007C1 /* Ship.cpp in Sources */,
 				73A9FFBE27660512002007C1 /* SeaBattleGameField.cpp in Sources */,
 			);
@@ -179,6 +189,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -236,6 +247,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

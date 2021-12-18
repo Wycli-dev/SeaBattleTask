@@ -10,21 +10,30 @@
 
 #include <stdio.h>
 #include <iostream>
-#include <string>
+
 #include <vector>
 #include "Ship.hpp"
+#include "PointState.hpp"
 
 class SeaBattleGameField {
 private:
     std::vector<Ship> ships;
-    std::vector<int> ships_avaliability;
+    bool shots[10][10];
+    bool field_type;
+    
+    bool ship_exists(int x, int y);
+    bool ship_available(int length);
+    
+    PointState state_for_position(int x, int y);
+    std::string color_for_state(PointState state);
+    std::string with_leading_spaces(std::string source_string, int max_length);
+    
     
 public:
-
-    SeaBattleGameField();
+    SeaBattleGameField(bool field_type);
     void draw();
     bool add_ship(Ship new_ship);
-    bool ship_exists(int x, int y);
+    bool shoot(int x, int y);
 };
 
 
