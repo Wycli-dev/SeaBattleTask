@@ -20,6 +20,7 @@ private:
     SeaBattleGameField enemyGameField;
     
 public:
+    SeaBattleGame();
     bool make_shot(std::string position);
     bool place_ship(Ship ship);
     

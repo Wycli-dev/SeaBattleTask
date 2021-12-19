@@ -30,7 +30,7 @@ private:
     
     
 public:
-    SeaBattleGameField(bool field_type);
+    SeaBattleGameField(bool field_type = false);
     void draw();
     bool add_ship(Ship new_ship);
     bool shoot(int x, int y);
